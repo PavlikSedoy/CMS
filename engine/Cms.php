@@ -29,6 +29,9 @@ class Cms
      */
     public function run()
     {
-        echo "Hello CMS";
+        echo "Hello CMS!";
+
+        $db = $this->di->get('test');
+        var_dump($db);
     }
 }
