@@ -14,9 +14,14 @@ use Engine\DI\DI;
 try{
     // Dependency injection
     $di = new DI();
-    
-    $di->set('test', ['db_name' => 'cms_database']);
-    $di->set('test2', ['mail' => 'mail_address']);
+
+    // Init services
+    $services = require __DIR__ . '/Config/Service.php';
+    foreach ($services as $service)
+    {
+        $provider = new $service($di);
+        $provider->init($di);
+    }
 
     $cms = new Cms($di);
     $cms->run();
