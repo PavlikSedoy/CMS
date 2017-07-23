@@ -67,4 +67,11 @@ class UrlDispatcher
             return new DispatchedRoute($routes[$uri]);
         }
     }
+
+    private function doDispatch($method, $uri)
+    {
+        foreach ($this->routes($method) as $route => $controller) {
+            print $route;
+        }
+    }
 }
