@@ -14,7 +14,7 @@ class Cms
      * @var DI
      */
     private $di;
-    public $db;
+    public $router;
 
     /**
      * Cms constructor.
@@ -23,6 +23,7 @@ class Cms
     public function __construct($di)
     {
         $this->di = $di;
+        $this->router = $this->di->get('router');
     }
 
     /**
@@ -30,7 +31,10 @@ class Cms
      */
     public function run()
     {
+//        $this->router->add('home', '/', 'HomeController:index');
+        
+        echo '<pre>';
         print_r($this->di);
-
+        echo '</pre>';
     }
 }
